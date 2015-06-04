@@ -25,9 +25,10 @@ struct example_application
 	;}
 	const char* article_content() const {
 		html::print_form("post");
-		html::print_text_input("column1");
-		html::print_text_input("column2");
+		html::print_label_with_text_input("column1", "A", "aaaa");
+		html::print_label_with_text_input("column2", "B", "bbbb");
 		html::print_submit("");
+		html::print_close_tag("form");
 		return "aa";
 	}
 };
