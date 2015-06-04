@@ -28,6 +28,16 @@ namespace myun2
 				print_close_tag("title"); }
 
 			template <typename _App>
+			void render_body(const _App& app)
+			{
+				print_open_tag ("body");
+				print_open_tag("h1");
+				fputs(app.title(), stdout);
+				print_close_tag ("h1");
+				print_close_tag("body");
+			}
+
+			template <typename _App>
 			void render(const _App& app)
 			{
 				print_html5_doctype();
@@ -40,13 +50,7 @@ namespace myun2
 				print_title_tag(app.title());
 				print_close_tag("head");
 
-				/*  Body  */
-				print_open_tag ("body");
-				print_open_tag("h1");
-				fputs(app.title(), stdout);
-				print_close_tag ("h1");
-				print_close_tag("body");
-
+				render_body(app);
 				print_close_tag("html");
 			}
 		}
