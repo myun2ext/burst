@@ -20,11 +20,16 @@ namespace myun2
 				print_open_tag ("html");
 
 				print_open_tag ("head");
+				printf("<meta charset=\"UTF-8\">");
 				print_open_tag ("title");
 				fputs(app.title(), stdout);
 				print_close_tag("title");
 				print_close_tag("head");
+
 				print_open_tag ("body");
+				print_open_tag("h1");
+				fputs(app.title(), stdout);
+				print_close_tag ("h1");
 				print_close_tag("body");
 
 				print_close_tag("html");
