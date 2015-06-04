@@ -2,6 +2,7 @@
 #include <string.h>
 #include "burst/html.hpp"
 #include "burst/css.hpp"
+#include "burst/css/form.hpp"
 
 using namespace myun2::burst;
 
@@ -37,8 +38,10 @@ int main(int argc, char *argv[])
 {
 	example_application app;
 
-	if ( strcmp(argv[1], "basic.css") == 0)
+	if ( strcmp(argv[1], "basic.css") == 0) {
 		css::render_basic(app);
+		css::render_form_styles(app);
+	}
 
 	else if ( strcmp(argv[1], "index.html") == 0)
 		html::render(app);

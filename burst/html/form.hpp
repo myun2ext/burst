@@ -14,7 +14,7 @@ namespace myun2
 				printf("<label for=\"%s\">%s</label>", column_name, text); }
 
 			void print_text_input(const char* column_name, const char* default_input="") {
-				printf("<input type=\"text\" name=\"%s\">%s</input>", column_name, default_input); }
+				printf("<input type=\"text\" name=\"%s\" value=\"%s\"></input>", column_name, default_input); }
 
 			void print_label_with_text_input(const char* column_name, const char* label, const char* default_input="") {
 				print_label(column_name, label);

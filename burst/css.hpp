@@ -18,6 +18,18 @@ namespace myun2
 			void print_margin(const char* margin) {
 				print_property("margin", margin); }
 
+			void print_content(const char* content) {
+				printf("content:\"%s\";", content); }
+
+			void print_width(const char* width) {
+				print_property("width", width); }
+
+			void print_float_left() {
+				print_property("float", "left"); }
+
+			void print_float_right() {
+				print_property("float", "right"); }
+
 			void print_font_family(const char* font_families) {
 				print_property("font-family", font_families); }
 
