@@ -17,6 +17,11 @@ namespace myun2
 				printf("<div class=\"%s\">", class_name); }
 			void print_close_div() { printf("</div>"); }
 
+			void print_start_section() { printf("<section>"); }
+			void print_end_section() { printf("</section>"); }
+			void print_start_article() { printf("<article>"); }
+			void print_end_article() { printf("</article>"); }
+
 			template <unsigned char N>
 			void print_heading(const char* content) {
 				printf("<h%d>%s</h%d>", N, content, N); }
