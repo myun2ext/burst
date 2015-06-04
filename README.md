@@ -1,3 +1,3 @@
-# burst.cpp
+# Burst!
 
-C++ Template Engine
+C++ HTML Template Engine.
