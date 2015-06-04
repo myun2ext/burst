@@ -23,7 +23,7 @@ namespace myun2
 			{
 				print_open_tag ("head");
 				print_meta_charaset("UTF-8");
-				print_stylesheet_link_tag("reset.css");
+				print_stylesheet_link_tag("basic.css");
 
 				print_title_tag(app.title());
 				print_close_tag("head");
