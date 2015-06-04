@@ -21,13 +21,24 @@ namespace myun2
 			void print_font_family(const char* font_families) {
 				print_property("font-family", font_families); }
 
-			void reset()
+			void print_background_color(const char* color) {
+				print_property("background-color", color); }
+
+			template <typename _App>
+			void render_reset(const _App& app)
 			{
-				/* Reset */
 				print_selector("*");
 				print_padding("0");
 				print_margin("0");
-				print_font_family("'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;");
+				print_font_family("'Hiragino Kaku Gothic ProN', Meiryo, sans-serif");
+				print_background_color(app.bgcolor());
+				print_close();
+			}
+			template <typename _App>
+			void render_basic(const _App& app)
+			{
+				/*	Body  */
+				print_selector("body");
 				print_close();
 			}
 		}
