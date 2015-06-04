@@ -12,6 +12,14 @@ namespace myun2
 			void print_tag(const char* tag_name) { print_open_tag(tag_name); }
 			void print_close_tag(const char* tag_name) {
 				printf("</%s>", tag_name); }
+
+			void print_open_div(const char* class_name) {
+				printf("<div class=\"%s\">", class_name); }
+			void print_close_div() { printf("</div>"); }
+
+			template <unsigned char N>
+			void print_heading(const char* content) {
+				printf("<h%d>%s</h%d>", N, content, N); }
 		}
 	}
 }

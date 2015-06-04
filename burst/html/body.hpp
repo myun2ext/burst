@@ -17,12 +17,18 @@ namespace myun2
 			template <typename _App>
 			void render_body(const _App& app)
 			{
+				/*  Open  */
 				print_open_tag ("body");
 
+				/*  Header  */
 				render_header(app);
-				print_open_tag("h1");
-				fputs(app.title(), stdout);
-				print_close_tag ("h1");
+
+				/*  Main  */
+				print_open_tag ("main");
+				print_heading<1>(app.title());
+				print_close_tag("main");
+
+				/*  Close  */
 				print_close_tag("body");
 			}
 		}
