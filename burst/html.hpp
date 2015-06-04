@@ -13,13 +13,15 @@ namespace myun2
 			void print_close_tag(const char* tag_name) {
 				printf("</%s>", tag_name); }
 
-			void render()
+			template <typename _App>
+			void render(const _App& app)
 			{
 				printf("<!DOCTYPE html>");
 				print_open_tag ("html");
 
 				print_open_tag ("head");
 				print_open_tag ("title");
+				fputs(app.title(), stdout);
 				print_close_tag("title");
 				print_close_tag("head");
 				print_open_tag ("body");
