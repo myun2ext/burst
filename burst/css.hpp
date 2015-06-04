@@ -45,10 +45,20 @@ namespace myun2
 				print_padding("0");
 				print_margin("0");
 				print_font_family("'Hiragino Kaku Gothic ProN', Meiryo, sans-serif");
+				print_close();
+
+				/*	body	*/
+				print_selector("body");
 				print_background_color(app.bgcolor());
 				print_close();
 
+				/*	header	*/
 				render_header(app.header());
+
+				/*	main	*/
+				print_selector("main");
+				fputs(app.main_style(), stdout);
+				print_close();
 			}
 		}
 	}
