@@ -31,6 +31,7 @@ namespace myun2
 
 #include "html/head.hpp"
 #include "html/body.hpp"
+#include "html/form.hpp"
 
 namespace myun2
 {

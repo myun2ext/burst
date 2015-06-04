@@ -23,6 +23,13 @@ struct example_application
 		"border: solid #ddd 1px;"
 		"background-color: white;"
 	;}
+	const char* article_content() const {
+		html::print_form("post");
+		html::print_text_input("column1");
+		html::print_text_input("column2");
+		html::print_submit("");
+		return "aa";
+	}
 };
 
 int main(int argc, char *argv[])

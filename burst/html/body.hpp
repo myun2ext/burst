@@ -26,6 +26,11 @@ namespace myun2
 				/*  Main  */
 				print_open_tag ("main");
 				print_heading<1>(app.title());
+
+				print_start_article();
+				fputs(app.article_content(), stdout);
+				print_end_article();
+
 				print_close_tag("main");
 
 				/*  Close  */
