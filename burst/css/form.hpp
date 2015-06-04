@@ -12,11 +12,14 @@ namespace myun2
 			{
 				print_selector("form");
 				print_width("300px");
+				print_padding("11px");
+				print_border_radius("10px");
+				print_background_color("#eee");
 				print_close();
 
 				print_selector("label");
 				print_float_left();
-				print_width("40%");
+				print_width("42%");
 				print_close();
 
 				print_selector("input[type=text]");

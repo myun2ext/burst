@@ -24,6 +24,9 @@ namespace myun2
 			void print_width(const char* width) {
 				print_property("width", width); }
 
+			void print_border_radius(const char* value) {
+				print_property("border-radius", value); }
+
 			void print_float_left() {
 				print_property("float", "left"); }
 
