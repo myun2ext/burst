@@ -17,13 +17,14 @@ struct example_application
 	};
 	const header_content header() const { return header_content(); }
 
-	const char* main_style() const { return
-		"margin: 12px auto;"
-		"padding: 10px;"
-		"width: 90%;"
-		"border: solid #ddd 1px;"
-		"background-color: white;"
-	;}
+	const char* main_style() const {
+		css::print_margin("12px auto");
+		css::print_padding("10px");
+		css::print_width("90%");
+		css::print_border("solid #ddd 1px");
+		css::print_background_color("white");
+		return "";
+	}
 	const char* article_content() const {
 		html::print_form("post");
 		html::print_label_with_text_input("column1", "A", "aaaa");
