@@ -4,6 +4,7 @@
 #include "burst/css.hpp"
 #include "burst/css/form.hpp"
 #include "burst/css/responsive.hpp"
+#include "burst/resource.hpp"
 
 using namespace myun2::burst;
 
@@ -27,7 +28,7 @@ struct example_application
 		css::print_close();
 
 		/*	Responsive small screen */
-		css::print_screen_under(380);
+		css::print_screen_under(390);
 		css::print_selector("main");
 		css::print_width("100%");
 		css::print_close();
@@ -55,6 +56,11 @@ int main(int argc, char *argv[])
 
 	else if ( strcmp(argv[1], "index.html") == 0)
 		html::render(app);
+
+	else if ( strcmp(argv[1], "post") == 0) {
+		resource r("post", argv[2]);
+		r.create("txt", argv[3]);
+	}
 
 	return 0;
 }
