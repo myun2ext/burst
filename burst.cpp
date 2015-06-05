@@ -3,6 +3,7 @@
 #include "burst/html.hpp"
 #include "burst/css.hpp"
 #include "burst/css/form.hpp"
+#include "burst/css/responsive.hpp"
 
 using namespace myun2::burst;
 
@@ -23,6 +24,14 @@ struct example_application
 		css::print_width("90%");
 		css::print_border("solid #ddd 1px");
 		css::print_background_color("white");
+		css::print_close();
+
+		/*	Responsive small screen */
+		css::print_screen_under(380);
+		css::print_selector("main");
+		css::print_width("100%");
+		css::print_close();
+
 		return "";
 	}
 	const char* article_content() const {
