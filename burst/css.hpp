@@ -27,6 +27,7 @@ namespace myun2
 	}
 }
 
+#include "css/px.hpp"
 #include "css/box.hpp"
 
 namespace myun2
@@ -58,6 +59,12 @@ namespace myun2
 				/*	body	*/
 				print_selector("body");
 				print_background_color(app.bgcolor());
+				print_close();
+
+				/* heading */
+				print_selector("h1");
+				printf("line-height: 1.34em;");
+				printf("margin-bottom: 6px;");
 				print_close();
 
 				/*	header	*/
