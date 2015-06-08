@@ -21,7 +21,7 @@ struct example_application
 
 	const char* main_style() const {
 		css::print_margin("12px auto");
-		css::print_padding("20px");
+		css::print_padding(20);
 		css::print_width("90%");
 		css::print_border("solid #ddd 1px");
 		css::print_background_color("white");

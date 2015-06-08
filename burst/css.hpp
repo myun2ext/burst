@@ -12,29 +12,8 @@ namespace myun2
 				printf("%s:%s;", attribute, value); }
 			void print_close() { fputs("}", stdout); }
 
-			void print_padding(const char* padding) {
-				print_property("padding", padding); }
-
-			void print_margin(const char* margin) {
-				print_property("margin", margin); }
-
 			void print_content(const char* content) {
 				printf("content:\"%s\";", content); }
-
-			void print_width(const char* width) {
-				print_property("width", width); }
-
-			void print_border(const char* str) {
-				print_property("border", str); }
-
-			void print_border_radius(const char* value) {
-				print_property("border-radius", value); }
-
-			void print_float_left() {
-				print_property("float", "left"); }
-
-			void print_float_right() {
-				print_property("float", "right"); }
 
 			void print_font_family(const char* font_families) {
 				print_property("font-family", font_families); }
@@ -44,7 +23,18 @@ namespace myun2
 
 			void print_background_color(const char* color) {
 				print_property("background-color", color); }
+		}
+	}
+}
 
+#include "css/box.hpp"
+
+namespace myun2
+{
+	namespace burst
+	{
+		namespace css
+		{
 			template <typename _App>
 			void render_header(const _App& app)
 			{
