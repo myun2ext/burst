@@ -14,7 +14,8 @@ struct example_application : application_base
 	const char* bgcolor() const { return "#333"; }
 	const char* title() const { return "Example Application"; }
 
-	struct header_content {
+	/*	header  */
+	struct header_content : application_base::header_content {
 		const char* text_color() const { return "white"; }
 		const char* bgcolor() const { return "#080808"; }
 		const char* title() const { "Example"; }
@@ -23,9 +24,9 @@ struct example_application : application_base
 
 	const char* main_style() const
 	{
-		css::print_margin("14px 0px");
+		css::print_margin("16px 1%");
 		css::print_padding(px(20));
-		css::print_width("65%");
+		css::print_width("60%");
 		css::print_shadow();
 		css::print_border("solid #ddd 1.4px");
 		css::print_border_radius(px(6));
@@ -43,7 +44,7 @@ struct example_application : application_base
 
 	const char* aside_style() const
 	{
-		css::print_margin("14px 20px");
+		css::print_margin("16px 2%");
 		css::print_padding(px(20));
 		css::print_width("20%");
 		css::print_shadow();

@@ -12,11 +12,11 @@ namespace myun2
 				printf("%s:%s;", attribute, value); }
 			void print_close() { fputs("}", stdout); }
 
+			void print_background_color(const char* color) {
+				print_property("background-color", color); }
+
 			void print_content(const char* content) {
 				printf("content:\"%s\";", content); }
-
-			void print_font_family(const char* font_families) {
-				print_property("font-family", font_families); }
 
 			void print_text_color(const char* color) {
 				print_property("color", color); }
@@ -24,8 +24,14 @@ namespace myun2
 			void print_text_decoration(const char* style) {
 				print_property("text-decoration", style); }
 
-			void print_background_color(const char* color) {
-				print_property("background-color", color); }
+			void print_font_size(const char* size) {
+				print_property("font-size", size); }
+
+			void print_font_family(const char* font_families) {
+				print_property("font-family", font_families); }
+
+			void print_line_height(const char* height) {
+				print_property("line-height", height); }
 		}
 	}
 }
@@ -66,8 +72,8 @@ namespace myun2
 
 				/* H1 */
 				print_selector("header h1");
-				printf("font-size: 1.4em;");
-				printf("line-height: 1.9em;");
+				print_font_size("1.35em;");
+				print_line_height("1.9em;");
 				printf("margin-bottom: 6px;");
 				print_close();
 			}
@@ -88,6 +94,7 @@ namespace myun2
 
 				/* H1 */
 				print_selector("h1");
+				print_font_size("2.4em;");
 				printf("line-height: 1.34em;");
 				printf("margin-bottom: 6px;");
 				print_close();

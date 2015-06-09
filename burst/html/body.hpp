@@ -26,9 +26,7 @@ namespace myun2
 			template <typename _App>
 			void render_aside(const _App& app)
 			{
-				/*  Open  */
 				print_open_tag ("aside");
-				/*  Close  */
 				print_close_tag("aside");
 			}
 		}

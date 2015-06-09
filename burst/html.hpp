@@ -46,9 +46,6 @@ namespace myun2
 	{
 		namespace html
 		{
-			void print_html5_doctype() {
-				printf("<!DOCTYPE html>"); }
-
 			template <typename _App>
 			void render_main(const _App& app)
 			{
@@ -69,17 +66,29 @@ namespace myun2
 			void render_body(const _App& app)
 			{
 				print_open_tag ("body");
+
+				/*	header  */
 				render_header(app);
+				/*	container  */
+				print_container();
+				/*	aside  */
 				render_aside(app);
+				/*	main  */
 				render_main(app);
+				print_close_div();
+
 				print_close_tag("body");
 			}
+
+			void print_html5_doctype() {
+				printf("<!DOCTYPE html>"); }
 
 			template <typename _App>
 			void render(const _App& app)
 			{
 				print_html5_doctype();
 				print_open_tag ("html");
+				/*	head & body  */
 				render_head(app);
 				render_body(app);
 				print_close_tag("html");
