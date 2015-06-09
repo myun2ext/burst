@@ -50,11 +50,36 @@ namespace myun2
 				printf("<!DOCTYPE html>"); }
 
 			template <typename _App>
+			void render_main(const _App& app)
+			{
+				print_open_tag ("main");
+
+				/*  Heading  */
+				print_heading<1>(app.title());
+
+				/*  Article  */
+				print_start_article();
+				fputs(app.article_content(), stdout);
+				print_end_article();
+
+				print_close_tag("main");
+			}
+
+			template <typename _App>
+			void render_body(const _App& app)
+			{
+				print_open_tag ("body");
+				render_header(app);
+				render_main(app);
+				render_aside(app);
+				print_close_tag("body");
+			}
+
+			template <typename _App>
 			void render(const _App& app)
 			{
 				print_html5_doctype();
 				print_open_tag ("html");
-
 				render_head(app);
 				render_body(app);
 				print_close_tag("html");

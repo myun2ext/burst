@@ -24,26 +24,12 @@ namespace myun2
 			}
 
 			template <typename _App>
-			void render_body(const _App& app)
+			void render_aside(const _App& app)
 			{
 				/*  Open  */
-				print_open_tag ("body");
-
-				/*  Header  */
-				render_header(app);
-
-				/*  Main  */
-				print_open_tag ("main");
-				print_heading<1>(app.title());
-
-				print_start_article();
-				fputs(app.article_content(), stdout);
-				print_end_article();
-
-				print_close_tag("main");
-
+				print_open_tag ("aside");
 				/*  Close  */
-				print_close_tag("body");
+				print_close_tag("aside");
 			}
 		}
 	}
