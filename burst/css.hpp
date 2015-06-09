@@ -45,6 +45,19 @@ namespace myun2
 				print_text_color(app.text_color());
 				print_background_color(app.bgcolor());
 				print_close();
+
+				/* container */
+				print_selector("header .container");
+				print_margin("0 auto");
+				print_width("92%");
+				print_close();
+
+				/* H1 */
+				print_selector("header h1");
+				printf("font-size: 1.4em;");
+				printf("line-height: 1.9em;");
+				printf("margin-bottom: 6px;");
+				print_close();
 			}
 
 			template <typename _App>
@@ -61,7 +74,7 @@ namespace myun2
 				print_background_color(app.bgcolor());
 				print_close();
 
-				/* heading */
+				/* H1 */
 				print_selector("h1");
 				printf("line-height: 1.34em;");
 				printf("margin-bottom: 6px;");

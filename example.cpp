@@ -15,7 +15,8 @@ struct example_application
 
 	struct header_content {
 		const char* text_color() const { return "white"; }
-		const char* bgcolor() const { return "#111"; }
+		const char* bgcolor() const { return "#080808"; }
+		const char* title() const { "Example"; }
 	};
 	const header_content header() const { return header_content(); }
 
