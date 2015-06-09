@@ -32,6 +32,10 @@ namespace myun2
 
 			void print_line_height(const char* height) {
 				print_property("line-height", height); }
+
+			void print_transition(float time_sec) {
+				printf("-webkit-transition:%fs;", time_sec);
+				printf("transition:%fs;", time_sec); }
 		}
 	}
 }
@@ -58,23 +62,30 @@ namespace myun2
 				print_close();
 
 				/* a */
-				print_selector("a");
+				print_selector("header a");
 				print_text_color(app.text_color());
 				print_background_color(app.bgcolor());
 				print_text_decoration("none");
+				printf("padding: 4px 5px;");
+				print_close();
+
+				/* a:hover */
+				print_selector("header a:hover");
+				print_background_color("#333");
 				print_close();
 
 				/* container */
 				print_selector("header .container");
 				print_margin("0 auto");
-				print_width("92%");
+				print_width("96%");
 				print_close();
 
 				/* H1 */
 				print_selector("header h1");
 				print_font_size("1.35em;");
-				print_line_height("1.9em;");
-				printf("margin-bottom: 6px;");
+				print_line_height("1.4em;");
+				printf("padding: 6px 6px;");
+				printf("margin-bottom: 8px;");
 				print_close();
 			}
 
