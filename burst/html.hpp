@@ -17,6 +17,10 @@ namespace myun2
 				printf("<div class=\"%s\">", class_name); }
 			void print_close_div() { printf("</div>"); }
 
+			void print_a(const char* href) {
+				printf("<a href=\"%s\">", href); }
+			void print_close_a() { printf("</a>"); }
+
 			void print_container() {
 				fputs("<div class=\"container\">", stdout); }
 

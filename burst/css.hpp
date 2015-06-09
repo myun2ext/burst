@@ -21,6 +21,9 @@ namespace myun2
 			void print_text_color(const char* color) {
 				print_property("color", color); }
 
+			void print_text_decoration(const char* style) {
+				print_property("text-decoration", style); }
+
 			void print_background_color(const char* color) {
 				print_property("background-color", color); }
 		}
@@ -44,6 +47,13 @@ namespace myun2
 				print_margin("0");
 				print_text_color(app.text_color());
 				print_background_color(app.bgcolor());
+				print_close();
+
+				/* a */
+				print_selector("a");
+				print_text_color(app.text_color());
+				print_background_color(app.bgcolor());
+				print_text_decoration("none");
 				print_close();
 
 				/* container */

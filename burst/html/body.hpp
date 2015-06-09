@@ -12,9 +12,13 @@ namespace myun2
 			{
 				print_open_tag ("header");
 				print_container();
+
 				print_open_tag ("h1");
+				print_a("/");
 				fputs(app.title(), stdout);
+				print_close_a();
 				print_close_tag ("h1");
+
 				print_close_div();
 				print_close_tag("header");
 			}
