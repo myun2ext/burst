@@ -7,6 +7,8 @@ namespace myun2
 	{
 		namespace html
 		{
+			void _puts(const char* str) { fputs(str, stdout); }
+
 			void print_open_tag(const char* tag_name) {
 				printf("<%s>", tag_name); }
 			void print_tag(const char* tag_name) { print_open_tag(tag_name); }
@@ -15,19 +17,27 @@ namespace myun2
 
 			void print_open_div(const char* class_name) {
 				printf("<div class=\"%s\">", class_name); }
-			void print_close_div() { printf("</div>"); }
+			void print_close_div() { _puts("</div>"); }
 
 			void print_a(const char* href) {
 				printf("<a href=\"%s\">", href); }
-			void print_close_a() { printf("</a>"); }
+			void print_close_a() { _puts("</a>"); }
+
+			void print_ul() { _puts("<ul>"); }
+			void print_close_ul() { _puts("</ul>"); }
+
+			void print_li(const char* title) {
+				printf("<li>%s</li>", title); }
+			void print_li_link(const char* title, const char* href) {
+				printf("<li><a href=\"%s\">%s</a></li>", href, title); }
 
 			void print_container() {
-				fputs("<div class=\"container\">", stdout); }
+				_puts("<div class=\"container\">"); }
 
-			void print_start_section() { printf("<section>"); }
-			void print_end_section() { printf("</section>"); }
-			void print_start_article() { printf("<article>"); }
-			void print_end_article() { printf("</article>"); }
+			void print_start_section() { _puts("<section>"); }
+			void print_end_section() { _puts("</section>"); }
+			void print_start_article() { _puts("<article>"); }
+			void print_end_article() { _puts("</article>"); }
 
 			template <unsigned char N>
 			void print_heading(const char* content) {
@@ -69,8 +79,8 @@ namespace myun2
 
 				/*	header  */
 				render_header(app);
-				/*	container  */
-				print_container();
+				/*	main container  */
+				print_open_div("main-container");
 				/*	aside  */
 				render_aside(app);
 				/*	main  */

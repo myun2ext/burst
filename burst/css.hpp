@@ -102,6 +102,11 @@ namespace myun2
 				/*	header	*/
 				render_header(app.header());
 
+				/*	main container	*/
+				print_selector(".main-container");
+				fputs(app.main_container_style(), stdout);
+				print_close();
+
 				/*	main	*/
 				print_selector("main");
 				print_float_left();

@@ -1,5 +1,5 @@
-#ifndef __MYUN2_GITHUB_COM__BURST__BODY_HPP__
-#define __MYUN2_GITHUB_COM__BURST__BODY_HPP__
+#ifndef __MYUN2_GITHUB_COM__BURST__HTML__BODY_HPP__
+#define __MYUN2_GITHUB_COM__BURST__HTML__BODY_HPP__
 
 namespace myun2
 {
@@ -33,4 +33,4 @@ namespace myun2
 	}
 }
 
-#endif//__MYUN2_GITHUB_COM__BURST__BODY_HPP__
+#endif//__MYUN2_GITHUB_COM__BURST__HTML__BODY_HPP__

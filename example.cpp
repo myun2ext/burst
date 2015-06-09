@@ -22,6 +22,10 @@ struct example_application : application_base
 	};
 	const header_content header() const { return header_content(); }
 
+	const char* main_container_style() const
+	{
+		return "";
+	}
 	const char* main_style() const
 	{
 		css::print_margin("16px 1%");
