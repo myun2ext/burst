@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "burst/app.hpp"
 #include "burst/html.hpp"
 #include "burst/css.hpp"
 #include "burst/css/form.hpp"
@@ -8,7 +9,7 @@
 
 using namespace myun2::burst;
 
-struct example_application
+struct example_application : application_base
 {
 	const char* bgcolor() const { return "#333"; }
 	const char* title() const { return "Example Application"; }
