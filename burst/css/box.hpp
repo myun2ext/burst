@@ -35,6 +35,11 @@ namespace myun2
 			void print_border(const char* str) {
 				print_property("border", str); }
 
+			void print_shadow(const char* str) {
+				print_property("box-shadow", str); }
+			void print_shadow(int px = 10, float alpha = 0.4) {
+				printf("box-shadow: %dpx %dpx %dpx rgba(0,0,0,%f);", px, px, px, alpha); }
+
 			void print_border_radius(const char* value) {
 				print_property("border-radius", value); }
 

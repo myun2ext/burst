@@ -10,7 +10,7 @@ using namespace myun2::burst;
 
 struct example_application
 {
-	const char* bgcolor() const { return "#eee"; }
+	const char* bgcolor() const { return "#333"; }
 	const char* title() const { return "Example Application"; }
 
 	struct header_content {
@@ -24,7 +24,9 @@ struct example_application
 		css::print_margin("16px auto");
 		css::print_padding(px(20));
 		css::print_width("90%");
-		css::print_border("solid #ddd 1px");
+		css::print_shadow();
+		css::print_border("solid #ddd 1.4px");
+		css::print_border_radius(px(6));
 		css::print_background_color("white");
 		css::print_close();
 
