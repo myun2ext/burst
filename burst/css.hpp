@@ -36,6 +36,13 @@ namespace myun2
 			void print_transition(float time_sec) {
 				printf("-webkit-transition:%fs;", time_sec);
 				printf("transition:%fs;", time_sec); }
+
+			template <typename _Fn>
+			void print_style(const char* selector, _Fn fn) {
+				print_selector(selector);
+				fn();
+				print_close();
+			}
 		}
 	}
 }
