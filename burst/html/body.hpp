@@ -11,11 +11,11 @@ namespace myun2
 			void render_header(const _App& app)
 			{
 				print_open_tag ("header");
-				print_open_tag ("div class=\"container\"");
+				print_container();
 				print_open_tag ("h1");
 				fputs(app.title(), stdout);
 				print_close_tag ("h1");
-				print_close_tag ("div");
+				print_close_div();
 				print_close_tag("header");
 			}
 

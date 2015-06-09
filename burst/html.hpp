@@ -17,6 +17,9 @@ namespace myun2
 				printf("<div class=\"%s\">", class_name); }
 			void print_close_div() { printf("</div>"); }
 
+			void print_container() {
+				fputs("<div class=\"container\">", stdout); }
+
 			void print_start_section() { printf("<section>"); }
 			void print_end_section() { printf("</section>"); }
 			void print_start_article() { printf("<article>"); }
