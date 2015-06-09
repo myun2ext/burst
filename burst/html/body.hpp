@@ -22,13 +22,6 @@ namespace myun2
 				print_close_div();
 				print_close_tag("header");
 			}
-
-			template <typename _App>
-			void render_aside(const _App& app)
-			{
-				print_open_tag ("aside");
-				print_close_tag("aside");
-			}
 		}
 	}
 }

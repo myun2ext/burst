@@ -16,6 +16,7 @@ namespace myun2
 			virtual const char* bgcolor() const { return "#eee"; }
 			virtual const char* txtcolor() const { return "#000"; }
 			virtual const char* title() const { return "Application"; }
+			virtual void render_content() const =0;
 		};
 
 		struct style {

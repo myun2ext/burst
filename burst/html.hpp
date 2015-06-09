@@ -56,40 +56,6 @@ namespace myun2
 	{
 		namespace html
 		{
-			template <typename _App>
-			void render_main(const _App& app)
-			{
-				print_open_tag ("main");
-
-				/*  Heading  */
-				print_heading<1>(app.title());
-
-				/*  Article  */
-				print_start_article();
-				fputs(app.article_content(), stdout);
-				print_end_article();
-
-				print_close_tag("main");
-			}
-
-			template <typename _App>
-			void render_body(const _App& app)
-			{
-				print_open_tag ("body");
-
-				/*	header  */
-				render_header(app);
-				/*	main container  */
-				print_open_div("main-container");
-				/*	aside  */
-				render_aside(app);
-				/*	main  */
-				render_main(app);
-				print_close_div();
-
-				print_close_tag("body");
-			}
-
 			void print_html5_doctype() {
 				printf("<!DOCTYPE html>"); }
 
@@ -100,7 +66,7 @@ namespace myun2
 				print_open_tag ("html");
 				/*	head & body  */
 				render_head(app);
-				render_body(app);
+				app.render_content();
 				print_close_tag("html");
 			}
 		}
