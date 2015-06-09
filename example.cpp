@@ -14,15 +14,8 @@ struct example_application : application_base
 	const char* bgcolor() const { return "#333"; }
 	const char* title() const { return "Example Application"; }
 
-	/*	header  */
-	struct header_content : application_base::header_content {
-		const char* bgcolor() const { return "#080808"; }
-		const char* text_color() const { return "white"; }
-		const char* title() const { "Example"; }
-	};
-	const header_content header() const { return header_content(); }
-
-	struct frame_style : style
+	/*	frame  */
+	struct frame : style
 	{
 		const char* selector() const { return ".frame"; }
 		const char* content() const
@@ -36,48 +29,23 @@ struct example_application : application_base
 			return "";
 		}
 	};
-	void print_styles() const {
-		frame_style().print();
-	}
 
-	const char* main_container_style() const
+	struct side_menu : content_base
 	{
-		return "";
-	}
-	const char* main_style() const
+		const char* classes() const { return "frame"; }
+	};
+
+	struct main_content : content_base
 	{
-		css::print_margin("16px 1%");
-		css::print_padding(px(20));
-		css::print_width("60%");
+		const char* classes() const { return "frame"; }
+		const char* content() const {
+			html::print_h1("Example Application");
+			return "";
+		}
+	};
 
-		/*	Responsive small screen */
-		css::print_screen_under(390);
-		css::print_selector("main");
-		css::print_width("100%");
-		css::print_close();
-
-		return "";
-	}
-
-	const char* aside_style() const
-	{
-		css::print_margin("16px 2%");
-		css::print_width("20%");
-
-		/*	Responsive small screen */
-		css::print_screen_under(390);
-		css::print_selector("main");
-		css::print_width("100%");
-		css::print_close();
-
-		return "";
-	}
 	void render_content() const {
-		html::print_form("post");
-		html::print_label_with_text_input("column1", "A", "aaaa");
-		html::print_label_with_text_input("column2", "B", "bbbb");
-		html::print_submit("");
-		html::print_close_tag("form");
+		main_content().content();
 	}
 };
 
@@ -87,8 +55,6 @@ int main(int argc, char *argv[])
 
 	if ( strcmp(argv[1], "basic.css") == 0) {
 		css::render_basic(app);
-		css::render_form_styles(app);
-		app.print_styles();
 	}
 
 	else if ( strcmp(argv[1], "index.html") == 0)

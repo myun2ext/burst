@@ -7,12 +7,6 @@ namespace myun2
 	{
 		struct application_base
 		{
-			struct header_content
-			{
-				const char* txtcolor() const { return "white"; }
-				const char* bgcolor() const { return "#080808"; }
-				const char* title() const { "Application"; }
-			};
 			virtual const char* bgcolor() const { return "#eee"; }
 			virtual const char* txtcolor() const { return "#000"; }
 			virtual const char* title() const { return "Application"; }
@@ -28,6 +22,11 @@ namespace myun2
 				content();
 				css::print_close();
 			}
+		};
+
+		struct content_base {
+			virtual const char* classes() const { return ""; }
+			virtual const char* content() const { return ""; }
 		};
 	}
 }

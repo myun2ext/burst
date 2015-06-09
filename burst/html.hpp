@@ -11,7 +11,8 @@ namespace myun2
 
 			void print_open_tag(const char* tag_name) {
 				printf("<%s>", tag_name); }
-			void print_tag(const char* tag_name) { print_open_tag(tag_name); }
+			void print_tag(const char* tag_name, const char* content) {
+				printf("<%s>%s</%s>", tag_name, content, tag_name); }
 			void print_close_tag(const char* tag_name) {
 				printf("</%s>", tag_name); }
 
@@ -27,9 +28,12 @@ namespace myun2
 			void print_close_ul() { _puts("</ul>"); }
 
 			void print_li(const char* title) {
-				printf("<li>%s</li>", title); }
+				print_tag("li", title); }
 			void print_li_link(const char* title, const char* href) {
 				printf("<li><a href=\"%s\">%s</a></li>", href, title); }
+
+			void print_h1(const char* title) {
+				print_tag("h1", title); }
 
 			void print_container() {
 				_puts("<div class=\"container\">"); }
@@ -38,10 +42,6 @@ namespace myun2
 			void print_end_section() { _puts("</section>"); }
 			void print_start_article() { _puts("<article>"); }
 			void print_end_article() { _puts("</article>"); }
-
-			template <unsigned char N>
-			void print_heading(const char* content) {
-				printf("<h%d>%s</h%d>", N, content, N); }
 		}
 	}
 }

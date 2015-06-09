@@ -57,46 +57,6 @@ namespace myun2
 		namespace css
 		{
 			template <typename _App>
-			void render_header(const _App& app)
-			{
-				print_selector("header");
-				print_padding("0");
-				print_margin("0");
-				print_text_color(app.text_color());
-				print_background_color(app.bgcolor());
-				//print_shadow(4, 0.2);
-				print_shadow("0px 5px 5px rgba(120,120,120,0.14)");
-				print_close();
-
-				/* a */
-				print_selector("header a");
-				print_text_color(app.text_color());
-				print_background_color(app.bgcolor());
-				print_text_decoration("none");
-				printf("padding: 4px 5px;");
-				print_close();
-
-				/* a:hover */
-				print_selector("header a:hover");
-				print_background_color("#333");
-				print_close();
-
-				/* container */
-				print_selector("header .container");
-				print_margin("0 auto");
-				print_width("96%");
-				print_close();
-
-				/* H1 */
-				print_selector("header h1");
-				print_font_size("1.35em;");
-				print_line_height("1.4em;");
-				printf("padding: 6px 6px;");
-				printf("margin-bottom: 8px;");
-				print_close();
-			}
-
-			template <typename _App>
 			void render_basic(const _App& app)
 			{
 				print_selector("*");
@@ -108,33 +68,6 @@ namespace myun2
 				/*	body	*/
 				print_selector("body");
 				print_background_color(app.bgcolor());
-				print_close();
-
-				/* H1 */
-				print_selector("h1");
-				print_font_size("2.4em;");
-				printf("line-height: 1.34em;");
-				printf("margin-bottom: 6px;");
-				print_close();
-
-				/*	header	*/
-				render_header(app.header());
-
-				/*	main container	*/
-				print_selector(".main-container");
-				fputs(app.main_container_style(), stdout);
-				print_close();
-
-				/*	main	*/
-				print_selector("main");
-				print_float_left();
-				fputs(app.main_style(), stdout);
-				print_close();
-
-				/*	aside	*/
-				print_selector("aside");
-				print_float_left();
-				fputs(app.aside_style(), stdout);
 				print_close();
 			}
 		}
