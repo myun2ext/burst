@@ -49,11 +49,6 @@ struct example_application : application_base
 		css::print_margin("16px 1%");
 		css::print_padding(px(20));
 		css::print_width("60%");
-		css::print_shadow();
-		css::print_border("solid #ddd 1.4px");
-		css::print_border_radius(px(6));
-		css::print_background_color("white");
-		css::print_close();
 
 		/*	Responsive small screen */
 		css::print_screen_under(390);
@@ -67,13 +62,7 @@ struct example_application : application_base
 	const char* aside_style() const
 	{
 		css::print_margin("16px 2%");
-		css::print_padding(px(20));
 		css::print_width("20%");
-		css::print_shadow();
-		css::print_border("solid #ddd 1.4px");
-		css::print_border_radius(px(6));
-		css::print_background_color("white");
-		css::print_close();
 
 		/*	Responsive small screen */
 		css::print_screen_under(390);
