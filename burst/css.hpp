@@ -47,6 +47,8 @@ namespace myun2
 				print_margin("0");
 				print_text_color(app.text_color());
 				print_background_color(app.bgcolor());
+				//print_shadow(4, 0.2);
+				print_shadow("0px 5px 5px rgba(120,120,120,0.14)");
 				print_close();
 
 				/* a */

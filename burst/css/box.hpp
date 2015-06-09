@@ -29,20 +29,25 @@ namespace myun2
 			void print_margin(int top, int right, int bottom, int left) {
 				printf("margin:%dpx %dpx %dpx %dpx;", top, right, bottom, left); }
 
+			/*  width / height  */
 			void print_width(const char* width) {
 				print_property("width", width); }
+			void print_height(const char* height) {
+				print_property("height", height); }
 
+			/*  Border  */
 			void print_border(const char* str) {
 				print_property("border", str); }
-
-			void print_shadow(const char* str) {
-				print_property("box-shadow", str); }
-			void print_shadow(int px = 10, float alpha = 0.4) {
-				printf("box-shadow: %dpx %dpx %dpx rgba(0,0,0,%f);", px, px, px, alpha); }
-
 			void print_border_radius(const char* value) {
 				print_property("border-radius", value); }
 
+			/*  Shadow  */
+			void print_shadow(const char* str) {
+				print_property("box-shadow", str); }
+			void print_shadow(int px = 12, float alpha = 0.4) {
+				printf("box-shadow: %dpx %dpx %dpx rgba(0,0,0,%f);", px, px, px, alpha); }
+
+			/*  Float  */
 			void print_float_left() {
 				print_property("float", "left"); }
 

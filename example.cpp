@@ -20,8 +20,9 @@ struct example_application
 	};
 	const header_content header() const { return header_content(); }
 
-	const char* main_style() const {
-		css::print_margin("16px auto");
+	const char* main_style() const
+	{
+		css::print_margin("18px auto");
 		css::print_padding(px(20));
 		css::print_width("90%");
 		css::print_shadow();
