@@ -22,9 +22,29 @@ struct example_application
 
 	const char* main_style() const
 	{
-		css::print_margin("18px auto");
+		css::print_margin("14px 0px");
 		css::print_padding(px(20));
-		css::print_width("90%");
+		css::print_width("65%");
+		css::print_shadow();
+		css::print_border("solid #ddd 1.4px");
+		css::print_border_radius(px(6));
+		css::print_background_color("white");
+		css::print_close();
+
+		/*	Responsive small screen */
+		css::print_screen_under(390);
+		css::print_selector("main");
+		css::print_width("100%");
+		css::print_close();
+
+		return "";
+	}
+
+	const char* aside_style() const
+	{
+		css::print_margin("14px 20px");
+		css::print_padding(px(20));
+		css::print_width("20%");
 		css::print_shadow();
 		css::print_border("solid #ddd 1.4px");
 		css::print_border_radius(px(6));

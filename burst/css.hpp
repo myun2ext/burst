@@ -97,7 +97,14 @@ namespace myun2
 
 				/*	main	*/
 				print_selector("main");
+				print_float_left();
 				fputs(app.main_style(), stdout);
+				print_close();
+
+				/*	aside	*/
+				print_selector("aside");
+				print_float_left();
+				fputs(app.aside_style(), stdout);
 				print_close();
 			}
 		}

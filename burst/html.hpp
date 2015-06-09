@@ -70,8 +70,8 @@ namespace myun2
 			{
 				print_open_tag ("body");
 				render_header(app);
-				render_main(app);
 				render_aside(app);
+				render_main(app);
 				print_close_tag("body");
 			}
 
