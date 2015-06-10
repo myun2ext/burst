@@ -66,7 +66,7 @@ namespace myun2
 				print_open_tag ("html");
 				/*	head & body  */
 				render_head(app);
-				app.render_content();
+				app.render_html();
 				print_close_tag("html");
 			}
 		}

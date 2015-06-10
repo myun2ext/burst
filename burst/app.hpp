@@ -10,7 +10,7 @@ namespace myun2
 			virtual const char* bgcolor() const { return "#eee"; }
 			virtual const char* txtcolor() const { return "#000"; }
 			virtual const char* title() const { return "Application"; }
-			virtual void render_content() const =0;
+			virtual void render_html() const =0;
 		};
 
 		struct style {
@@ -24,9 +24,22 @@ namespace myun2
 			}
 		};
 
-		struct content_base {
+		struct content_base
+		{
+			virtual const char* tag() const { return "div"; };
 			virtual const char* classes() const { return ""; }
 			virtual const char* content() const { return ""; }
+			void print_html() const {
+				printf("<%s class=\"%s\">", tag(), classes());
+				fputs(content(), stdout);
+				printf("</%s>", tag());
+			}
+		};
+
+		struct box
+		{
+			virtual const char* margin() const { return "0"; };
+			virtual const char* padding() const { return "0"; }
 		};
 	}
 }

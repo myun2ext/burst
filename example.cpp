@@ -38,14 +38,18 @@ struct example_application : application_base
 	struct main_content : content_base
 	{
 		const char* classes() const { return "frame"; }
+		const char* tag() const { return "main"; }
 		const char* content() const {
 			html::print_h1("Example Application");
 			return "";
 		}
 	};
 
-	void render_content() const {
-		main_content().content();
+	void render_style() const {
+		frame().print();
+	}
+	void render_html() const {
+		main_content().print_html();
 	}
 };
 
@@ -55,6 +59,7 @@ int main(int argc, char *argv[])
 
 	if ( strcmp(argv[1], "basic.css") == 0) {
 		css::render_basic(app);
+		app.render_style();
 	}
 
 	else if ( strcmp(argv[1], "index.html") == 0)
