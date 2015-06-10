@@ -16,11 +16,17 @@ namespace myun2
 		struct style_class {
 			virtual const char* name() const =0;
 			virtual const char* content() const { return ""; }
+			virtual const char* inner() const { return ""; }
+			void with(const char* selector) const {
+				printf(".%s %s{", name(), selector);
+			}
+			void close() const { css::print_close(); }
 			void print() const
 			{
 				printf(".%s{", name());
 				content();
 				css::print_close();
+				inner();
 			}
 		};
 

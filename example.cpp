@@ -41,6 +41,12 @@ struct example_application : application_base
 			css::print_shadow("0px 5px 5px rgba(120,120,120,0.14)");
 			return "";
 		}
+		const char* inner() const {
+			with("h1");
+			css::print_font_size("1.7em");
+			close();
+			return "";
+		}
 	};
 
 	struct header : content_base
