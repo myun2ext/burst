@@ -13,12 +13,12 @@ namespace myun2
 			virtual void render_html() const =0;
 		};
 
-		struct style {
-			virtual const char* selector() const =0;
+		struct style_class {
+			virtual const char* name() const =0;
 			virtual const char* content() const { return ""; }
 			void print() const
 			{
-				css::print_selector(selector());
+				printf(".%s{", name());
 				content();
 				css::print_close();
 			}

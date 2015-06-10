@@ -14,10 +14,10 @@ struct example_application : application_base
 	const char* bgcolor() const { return "#333"; }
 	const char* title() const { return "Example Application"; }
 
-	/*	frame  */
-	struct frame : style
+	/*	frame style  */
+	struct frame_class : style_class
 	{
-		const char* selector() const { return ".frame"; }
+		const char* name() const { return "frame"; }
 		const char* content() const
 		{
 			css::print_margin("16px 1%");
@@ -26,6 +26,7 @@ struct example_application : application_base
 			css::print_border("solid #ddd 1.4px");
 			css::print_border_radius(px(6));
 			css::print_background_color("white");
+			css::print_float_left();
 			return "";
 		}
 	};
@@ -33,6 +34,7 @@ struct example_application : application_base
 	struct side_menu : content_base
 	{
 		const char* classes() const { return "frame"; }
+		const char* tag() const { return "aside"; }
 	};
 
 	struct main_content : content_base
@@ -46,9 +48,10 @@ struct example_application : application_base
 	};
 
 	void render_style() const {
-		frame().print();
+		frame_class().print();
 	}
 	void render_html() const {
+		side_menu().print_html();
 		main_content().print_html();
 	}
 };
