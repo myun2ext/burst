@@ -34,12 +34,14 @@ struct example_application : application_base
 	struct side_menu : content_base
 	{
 		const char* classes() const { return "frame"; }
+		const char* style() const { return "width: 16%;"; }
 		const char* tag() const { return "aside"; }
 	};
 
 	struct main_content : content_base
 	{
 		const char* classes() const { return "frame"; }
+		const char* style() const { return "width: 60%;"; }
 		const char* tag() const { return "main"; }
 		const char* content() const {
 			html::print_h1("Example Application");

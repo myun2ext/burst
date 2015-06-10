@@ -28,9 +28,10 @@ namespace myun2
 		{
 			virtual const char* tag() const { return "div"; };
 			virtual const char* classes() const { return ""; }
+			virtual const char* style() const { return ""; }
 			virtual const char* content() const { return ""; }
 			void print_html() const {
-				printf("<%s class=\"%s\">", tag(), classes());
+				printf("<%s class=\"%s\" style=\"%s\">", tag(), classes(), style());
 				fputs(content(), stdout);
 				printf("</%s>", tag());
 			}
