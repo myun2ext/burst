@@ -31,7 +31,29 @@ struct example_application : application_base
 		}
 	};
 
-	struct side_menu : content_base
+	struct header_class : style_class
+	{
+		const char* name() const { return "header"; }
+		const char* content() const
+		{
+			css::print_text_color("white");
+			css::print_background_color("#080808");
+			css::print_shadow("0px 5px 5px rgba(120,120,120,0.14)");
+			return "";
+		}
+	};
+
+	struct header : content_base
+	{
+		const char* classes() const { return "header"; }
+		const char* tag() const { return "header"; }
+		const char* content() const {
+			html::print_h1("Example Application");
+			return "";
+		}
+	};
+
+	struct side : content_base
 	{
 		const char* classes() const { return "frame"; }
 		const char* style() const { return "width: 16%;"; }
@@ -50,10 +72,12 @@ struct example_application : application_base
 	};
 
 	void render_style() const {
+		header_class().print();
 		frame_class().print();
 	}
 	void render_html() const {
-		side_menu().print_html();
+		header().print_html();
+		side().print_html();
 		main_content().print_html();
 	}
 };
