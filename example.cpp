@@ -49,12 +49,21 @@ struct example_application : application_base
 		}
 	};
 
+	struct header_container : content_base
+	{
+		//const char* classes() const { return "header-container"; }
+		const char* style() const { return "margin: 2px auto; width: 96%;"; }
+		const char* content() const {
+			html::print_h1("Example Application");
+			return "";
+		}
+	};
 	struct header : content_base
 	{
 		const char* classes() const { return "header"; }
 		const char* tag() const { return "header"; }
 		const char* content() const {
-			html::print_h1("Example Application");
+			header_container().print_html();
 			return "";
 		}
 	};
