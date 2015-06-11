@@ -26,6 +26,18 @@ namespace myun2
 			template <typename T1, typename T2, typename T3>
 			void generate(const char* format, const T1& p1, const T2& p2, const T3& p3) {
 				fprintf(f, format, p1, p2, p3); }
+
+			template <typename T1>
+			void gen(const char* format, const T1& p1) {
+				fprintf(f, format, p1); }
+
+			template <typename T1, typename T2>
+			void gen(const char* format, const T1& p1, const T2& p2) {
+				fprintf(f, format, p1, p2); }
+
+			template <typename T1, typename T2, typename T3>
+			void gen(const char* format, const T1& p1, const T2& p2, const T3& p3) {
+				fprintf(f, format, p1, p2, p3); }
 		};
 	}
 }

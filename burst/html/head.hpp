@@ -7,27 +7,35 @@ namespace myun2
 	{
 		namespace html
 		{
-			void print_meta_charaset(const char* charset) {
-				printf("<meta charset=\"%s\">", charset); }
-
-			void print_stylesheet_link_tag(const char* path) {
-				printf("<link rel=\"stylesheet\" href=\"%s\">", path); }
-
-			void print_title_tag(const char* title) {
-				print_open_tag ("title");
-				fputs(title, stdout);
-				print_close_tag("title"); }
-
-			template <typename _App>
-			void render_head(const _App& app)
+			struct head
 			{
-				print_open_tag ("head");
-				print_meta_charaset("UTF-8");
-				print_stylesheet_link_tag("basic.css");
+				virtual const char* charset() const { return "UTF-8"; }
+				virtual const char* title() const { return ""; }
+			};
 
-				print_title_tag(app.title());
-				print_close_tag("head");
-			}
+			struct head_renderer : html_generator_base
+			{
+				const head &context;
+				head_renderer(FILE* f_in, const head& context_in) : html_generator_base(f_in), context(context_in) {}
+
+				void generate()
+				{
+					start_tag("head");
+					gen_charaset();
+					//gen_stylesheet_link_tag("basic.css");
+					gen_title();
+					close_tag("head");
+				}
+			private:
+				void gen_charaset() {
+					gen("<meta charset=\"%s\">", context.charset()); }
+
+				void stylesheet_link_tag(const char* path) {
+					gen("<link rel=\"stylesheet\" href=\"%s\">", path); }
+
+				void gen_title() {
+					tag("title", context.title()); }
+			};
 		}
 	}
 }
