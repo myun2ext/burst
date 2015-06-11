@@ -30,9 +30,13 @@ namespace myun2
 	{
 		namespace css
 		{
-			struct reset : box
+			struct css_base : box {
+				css_base(FILE* f_in) : box(f_in){}
+			};
+
+			struct reset : css_base
 			{
-				reset(FILE* f_in) : box(f_in){}
+				reset(FILE* f_in) : css_base(f_in){}
 				void render()
 				{
 					selector("*");
