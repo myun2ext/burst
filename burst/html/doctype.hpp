@@ -1,19 +1,23 @@
 #ifndef __MYUN2_GITHUB_COM__BURST__HTML__DOCTYPE_HPP__
 #define __MYUN2_GITHUB_COM__BURST__HTML__DOCTYPE_HPP__
 
-#include "generator.hpp"
+#include "../generator.hpp"
 
 namespace myun2
 {
 	namespace burst
 	{
-		template <unsigned char HtmlVersion>
-		struct doctype_generator;
+		namespace html
+		{
+			template <unsigned char HtmlVersion>
+			struct doctype_generator;
 
-		//	HTML5
-		template <> struct doctype_generator<5> : generator {
-			void generate() { gen("<!DOCTYPE html>"); }
-		};
+			//	HTML5
+			template <> struct doctype_generator<5> : generator {
+				doctype_generator<5>(FILE* f_in) : generator(f){}
+				void generate() { gen("<!DOCTYPE html>"); }
+			};
+		}
 	}
 }
 

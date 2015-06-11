@@ -9,7 +9,7 @@
 
 using namespace myun2::burst;
 
-struct example_application : application_base
+struct example_application// : application_base
 {
 	const char* bgcolor() const { return "#333"; }
 	const char* title() const { return "Example Application"; }
@@ -49,51 +49,9 @@ struct example_application : application_base
 		}
 	};
 
-	struct header_container : content_base
-	{
-		//const char* classes() const { return "header-container"; }
-		const char* style() const { return "margin: 2px auto; width: 96%;"; }
-		const char* content() const {
-			html::print_h1("Example Application");
-			return "";
-		}
-	};
-	struct header : content_base
-	{
-		const char* classes() const { return "header"; }
-		const char* tag() const { return "header"; }
-		const char* content() const {
-			header_container().print_html();
-			return "";
-		}
-	};
-
-	struct side : content_base
-	{
-		const char* classes() const { return "frame"; }
-		const char* style() const { return "width: 16%;"; }
-		const char* tag() const { return "aside"; }
-	};
-
-	struct main_content : content_base
-	{
-		const char* classes() const { return "frame"; }
-		const char* style() const { return "width: 60%;"; }
-		const char* tag() const { return "main"; }
-		const char* content() const {
-			html::print_h1("Example Application");
-			return "";
-		}
-	};
-
 	void render_style() const {
 		header_class().print();
 		frame_class().print();
-	}
-	void render_html() const {
-		header().print_html();
-		side().print_html();
-		main_content().print_html();
 	}
 };
 
@@ -107,7 +65,7 @@ int main(int argc, char *argv[])
 	}
 
 	else if ( strcmp(argv[1], "index.html") == 0)
-		html::render(app);
+		html::render(stdout, app);
 
 	else if ( strcmp(argv[1], "post") == 0) {
 		resource r("post", argv[2]);
