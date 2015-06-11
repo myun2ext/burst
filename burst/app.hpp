@@ -3,6 +3,7 @@
 
 #include "css.hpp"
 #include "html.hpp"
+#include "app/header.hpp"
 #include <vector>
 #include <string.h>
 
@@ -20,6 +21,7 @@ namespace myun2
 			virtual const char* title() const { return ""; }
 
 			void render_body(html_generator_base& r){
+				html::header(r.f).render(*this);
 				r.tag("h1", title());
 			}
 

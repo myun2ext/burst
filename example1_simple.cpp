@@ -4,6 +4,7 @@ using namespace myun2::burst;
 
 struct example_application : application_base
 {
+	const char* title() const { return "Example Application"; }
 };
 
 int main(int argc, char *argv[])
