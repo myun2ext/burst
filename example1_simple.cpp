@@ -5,6 +5,8 @@ using namespace myun2::burst;
 struct example_application : application_base
 {
 	const char* title() const { return "Example Application"; }
+	/*void render_header(FILE* f) {
+	}*/
 };
 
 int main(int argc, char *argv[])

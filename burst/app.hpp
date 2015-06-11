@@ -20,8 +20,11 @@ namespace myun2
 			virtual const char* charset() const { return "UTF-8"; }
 			virtual const char* title() const { return ""; }
 
+			void render_header(FILE *f) {
+				html::header(f).render(*this);
+			}
 			void render_body(html_generator_base& r){
-				html::header(r.f).render(*this);
+				render_header(r.f);
 				r.tag("h1", title());
 			}
 
