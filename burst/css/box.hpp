@@ -7,52 +7,57 @@ namespace myun2
 	{
 		namespace css
 		{
-			/*  Padding  */
-			void print_padding(const char* padding) {
-				print_property("padding", padding); }
-			void print_padding(int all) { printf("padding:%dpx;", all); }
-			void print_padding(int vertical, int horizontal) {
-				printf("padding:%dpx %dpx;", vertical, horizontal); }
-			void print_padding(int top, int horizontal, int bottom) {
-				printf("padding:%dpx %dpx %dpx;", top, horizontal, bottom); }
-			void print_padding(int top, int right, int bottom, int left) {
-				printf("padding:%dpx %dpx %dpx %dpx;", top, right, bottom, left); }
+			struct box : css_generator_base
+			{
+				box(FILE* f_in) : css_generator_base(f_in){}
 
-			/*  Margin  */
-			void print_margin(const char* margin) {
-				print_property("margin", margin); }
-			void print_margin(int all) { printf("margin:%dpx;", all); }
-			void print_margin(int vertical, int horizontal) {
-				printf("margin:%dpx %dpx;", vertical, horizontal); }
-			void print_margin(int top, int horizontal, int bottom) {
-				printf("margin:%dpx %dpx %dpx;", top, horizontal, bottom); }
-			void print_margin(int top, int right, int bottom, int left) {
-				printf("margin:%dpx %dpx %dpx %dpx;", top, right, bottom, left); }
+				/*  Padding  */
+				void padding(const char* padding) {
+					property("padding", padding); }
+				void padding(int all) { generate("padding:%dpx;", all); }
+				void padding(int vertical, int horizontal) {
+					generate("padding:%dpx %dpx;", vertical, horizontal); }
+				void padding(int top, int horizontal, int bottom) {
+					generate("padding:%dpx %dpx %dpx;", top, horizontal, bottom); }
+				void padding(int top, int right, int bottom, int left) {
+					generate("padding:%dpx %dpx %dpx %dpx;", top, right, bottom, left); }
 
-			/*  width / height  */
-			void print_width(const char* width) {
-				print_property("width", width); }
-			void print_height(const char* height) {
-				print_property("height", height); }
+				/*  Margin  */
+				void margin(const char* margin) {
+					property("margin", margin); }
+				void margin(int all) { generate("margin:%dpx;", all); }
+				void margin(int vertical, int horizontal) {
+					generate("margin:%dpx %dpx;", vertical, horizontal); }
+				void margin(int top, int horizontal, int bottom) {
+					generate("margin:%dpx %dpx %dpx;", top, horizontal, bottom); }
+				void margin(int top, int right, int bottom, int left) {
+					generate("margin:%dpx %dpx %dpx %dpx;", top, right, bottom, left); }
 
-			/*  Border  */
-			void print_border(const char* str) {
-				print_property("border", str); }
-			void print_border_radius(const char* value) {
-				print_property("border-radius", value); }
+				/*  width / height  */
+				void width(const char* width) {
+					property("width", width); }
+				void height(const char* height) {
+					property("height", height); }
 
-			/*  Shadow  */
-			void print_shadow(const char* str) {
-				print_property("box-shadow", str); }
-			void print_shadow(int px = 12, float alpha = 0.4) {
-				printf("box-shadow: %dpx %dpx %dpx rgba(0,0,0,%f);", px, px, px, alpha); }
+				/*  Border  */
+				void border(const char* str) {
+					property("border", str); }
+				void border_radius(const char* value) {
+					property("border-radius", value); }
 
-			/*  Float  */
-			void print_float_left() {
-				print_property("float", "left"); }
+				/*  Shadow  */
+				void shadow(const char* str) {
+					property("box-shadow", str); }
+				void shadow(int px = 12, float alpha = 0.4) {
+					generate("box-shadow: %dpx %dpx %dpx rgba(0,0,0,%f);", px, px, px, alpha); }
 
-			void print_float_right() {
-				print_property("float", "right"); }
+				/*  Float  */
+				void float_left() {
+					property("float", "left"); }
+
+				void float_right() {
+					property("float", "right"); }
+			};
 		}
 	}
 }

@@ -11,10 +11,11 @@ namespace myun2
 		{
 			css_generator_base(FILE* f_in) : generator(f_in){}
 
-			void start_selector(const char* selector) {
-				generate("%s{", selector); }
+			void selector(const char* s) {
+				generate("%s{", s); }
 			void property(const char* attribute, const char* value) {
 				generate("%s:%s;", attribute, value); }
+			void end() { generate("}"); }
 			void close() { generate("}"); }
 		};
 	}
@@ -75,20 +76,17 @@ namespace myun2
 	{
 		namespace css
 		{
-			template <typename _App>
-			void render_basic(const _App& app)
+			struct reset : box
 			{
-				print_selector("*");
-				print_padding("0");
-				print_margin("0");
-				print_font_family("'Hiragino Kaku Gothic ProN', Meiryo, sans-serif");
-				print_close();
-
-				/*	body	*/
-				print_selector("body");
-				print_background_color(app.bgcolor());
-				print_close();
-			}
+				reset(FILE* f_in) : box(f_in){}
+				void render()
+				{
+					selector("*");
+					padding("0");
+					margin("0");
+					close();
+				}
+			};
 		}
 	}
 }
