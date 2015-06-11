@@ -1,17 +1,14 @@
 #ifndef __MYUN2_GITHUB_COM__BURST__HTML_HPP__
 #define __MYUN2_GITHUB_COM__BURST__HTML_HPP__
 
-#include <stdio.h>
+#include "generator.hpp"
+#include "html/doctype.hpp"
 
 namespace myun2
 {
 	namespace burst
 	{
-		struct generator {
-			FILE* f;
-		};
-
-		struct html_generator
+		struct html_generator : generator
 		{
 			void start_tag(const char* tag_name) {
 				fprintf(f, "<%s>", tag_name); }
@@ -61,10 +58,6 @@ namespace myun2
 	{
 		namespace html
 		{
-			template <unsigned char HtmlVersion>
-			void print_doctype() {}
-
-			template <> void print_doctype<5>() { printf("<!DOCTYPE html>"); }
 
 			template <typename _App>
 			void render(const _App& app)
