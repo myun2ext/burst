@@ -18,6 +18,11 @@ namespace myun2
 					close();
 
 					/*  header */
+					selector("body");
+					background_color("#333");
+					close();
+
+					/*  header */
 					selector("header");
 					background_color("#eee");
 					close();
@@ -25,7 +30,7 @@ namespace myun2
 					/*  header container */
 					selector("header .container");
 					margin("0 auto");
-					padding("5px 2%");
+					padding("5px 3%");
 					close();
 
 					/*  a */
@@ -35,8 +40,11 @@ namespace myun2
 
 					/*  main container */
 					selector(".main-container");
-					margin("0 auto");
+					margin("20px auto");
+					width("90%");
+					height("120px");
 					padding("5px 2%");
+					background_color("white");
 					close();
 				}
 			};
