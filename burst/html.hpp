@@ -56,13 +56,15 @@ namespace myun2
 	{
 		namespace html
 		{
-			void print_html5_doctype() {
-				printf("<!DOCTYPE html>"); }
+			template <unsigned char HtmlVersion>
+			void print_doctype() {}
+
+			template <> void print_doctype<5>() { printf("<!DOCTYPE html>"); }
 
 			template <typename _App>
 			void render(const _App& app)
 			{
-				print_html5_doctype();
+				print_doctype<5>();
 				print_open_tag ("html");
 				/*	head & body  */
 				render_head(app);
