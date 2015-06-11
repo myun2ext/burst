@@ -33,6 +33,11 @@ namespace myun2
 					padding("5px 3%");
 					close();
 
+					/*  header h1 */
+					selector("header h1");
+					font_size("1.7em");
+					close();
+
 					/*  a */
 					selector("a");
 					text_color("#222");
@@ -45,6 +50,9 @@ namespace myun2
 					height("120px");
 					padding("5px 2%");
 					background_color("white");
+
+					border_radius("6px");
+					shadow();
 					close();
 				}
 			};
