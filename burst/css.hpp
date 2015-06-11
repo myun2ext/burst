@@ -1,6 +1,25 @@
 #ifndef __MYUN2_GITHUB_COM__BURST__CSS_HPP__
 #define __MYUN2_GITHUB_COM__BURST__CSS_HPP__
 
+#include "generator.hpp"
+
+namespace myun2
+{
+	namespace burst
+	{
+		struct css_generator_base : generator
+		{
+			css_generator_base(FILE* f_in) : generator(f_in){}
+
+			void start_selector(const char* selector) {
+				generate("%s{", selector); }
+			void property(const char* attribute, const char* value) {
+				generate("%s:%s;", attribute, value); }
+			void close() { generate("}"); }
+		};
+	}
+}
+
 namespace myun2
 {
 	namespace burst
