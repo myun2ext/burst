@@ -30,13 +30,15 @@ namespace myun2
 	{
 		namespace css
 		{
-			struct css_base : box {
-				css_base(FILE* f_in) : box(f_in){}
+			struct base : box {
+				base(FILE* f_in) : box(f_in){}
+				void background_color(const char* color) {
+					property("background-color", color); }
 			};
 
-			struct reset : css_base
+			struct reset : base
 			{
-				reset(FILE* f_in) : css_base(f_in){}
+				reset(FILE* f_in) : base(f_in){}
 				void render()
 				{
 					selector("*");

@@ -3,6 +3,7 @@
 
 #include "css.hpp"
 #include "html.hpp"
+#include "app/basic_css.hpp"
 #include "app/header.hpp"
 #include <vector>
 #include <string.h>
@@ -21,6 +22,9 @@ namespace myun2
 			virtual const char* title() const { return ""; }
 			virtual const char* logo() const { return title(); }
 
+			void render_css(FILE *f) {
+				app::basic_css(f).render();
+			}
 			void render_header(FILE *f) {
 				html::header(f).render(*this);
 			}
@@ -31,10 +35,14 @@ namespace myun2
 
 			void render(const char* path)
 			{
-				if ( strcmp(path, "reset.css") == 0)
-					css::reset(stdout).render();
-				else
+				if ( path == NULL || strcmp(path, "index.html") == 0)
 					html_generator(stdout).render(*this);
+
+				else if ( strcmp(path, "reset.css") == 0)
+					css::reset(stdout).render();
+
+				else if ( strcmp(path, "application.css") == 0)
+					render_css(stdout);
 			}
 		};
 	}

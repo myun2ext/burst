@@ -7,14 +7,20 @@ namespace myun2
 	{
 		namespace app
 		{
-			struct basic_css : box
+			struct basic_css : css::base
 			{
-				basic_css(FILE* f_in) : box(f_in){}
+				basic_css(FILE* f_in) : css::base(f_in){}
 				void render()
 				{
-					selector("*");
-					padding("0");
-					margin("0");
+					/*  header */
+					selector("header");
+					background_color("#eee");
+					close();
+
+					/*  header container */
+					selector("header .container");
+					margin("0 auto");
+					padding("5px 2%");
 					close();
 				}
 			};

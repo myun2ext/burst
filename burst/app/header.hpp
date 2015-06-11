@@ -17,7 +17,9 @@ namespace myun2
 				void render(_Context& context)
 				{
 					open_tag("header");
+					start_container();
 					logo(f).render(context);
+					close_container();
 					close_tag("header");
 				}
 			};

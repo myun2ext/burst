@@ -4,6 +4,9 @@ using namespace myun2::burst;
 
 struct example_application : application_base
 {
+	example_application() {
+		stylesheets.push_back("application.css");
+	}
 	const char* title() const { return "Example Application"; }
 	/*void render_header(FILE* f) {
 	}*/
@@ -11,12 +14,6 @@ struct example_application : application_base
 
 int main(int argc, char *argv[])
 {
-	example_application app;
-
-	if (argc > 1)
-		app.render(argv[1]);
-	else
-		app.render("index.html");
-
+	example_application().render(argv[1]);
 	return 0;
 }

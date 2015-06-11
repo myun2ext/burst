@@ -34,6 +34,11 @@ namespace myun2
 			void close_div() {
 				generate("</div>"); }
 
+			void start_container() {
+				generate("<div class=\"container\">"); }
+			void close_container() {
+				generate("</div>"); }
+
 			void start_a(const char* link_to) {
 				generate("<a href=\"%s\">", link_to); }
 			void close_a() {
