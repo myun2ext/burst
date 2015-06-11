@@ -27,6 +27,12 @@ namespace myun2
 					selector("a");
 					text_color("#222");
 					close();
+
+					/*  main container */
+					selector(".main-container");
+					margin("0 auto");
+					padding("5px 2%");
+					close();
 				}
 			};
 		}

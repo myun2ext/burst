@@ -30,7 +30,9 @@ namespace myun2
 			}
 			void render_body(html_generator_base& r){
 				render_header(r.f);
+				r.div_with_class("main-container");
 				r.tag("h1", title());
+				r.close_div();
 			}
 
 			void render(const char* path)
