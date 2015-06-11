@@ -1,3 +1,6 @@
 # Burst!
 
-C++ HTML Template Engine.
+Fast C++ Web Generator.
+
+* CSS
+* HTML
