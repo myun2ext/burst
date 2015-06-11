@@ -16,7 +16,7 @@ namespace myun2
 				{
 					start_tag("head");
 					gen_charaset(context);
-					//gen_stylesheet_link_tag("basic.css");
+					gen_stylesheet_link_tags(context);
 					gen_title(context);
 					close_tag("head");
 				}
@@ -25,9 +25,10 @@ namespace myun2
 				void gen_charaset(const _Context &context) {
 					gen("<meta charset=\"%s\">", context.charset()); }
 
-				//template <typename _Context>
-				//void stylesheet_link_tag(const _Context &context) {
-				//	gen("<link rel=\"stylesheet\" href=\"%s\">", path); }
+				template <typename _Context>
+				void gen_stylesheet_link_tags(const _Context &context) {
+					for(int i=0; i<context.stylesheets.size(); i++)
+						gen("<link rel=\"stylesheet\" href=\"%s\">", context.stylesheets[i]); }
 
 				template <typename _Context>
 				void gen_title(const _Context &context) {
