@@ -14,7 +14,7 @@ namespace myun2
 
 			//	HTML5
 			template <> struct doctype_generator<5> : generator {
-				doctype_generator<5>(FILE* f_in) : generator(f){}
+				doctype_generator<5>(FILE* f_in) : generator(f_in){}
 				void generate() { gen("<!DOCTYPE html>"); }
 			};
 		}

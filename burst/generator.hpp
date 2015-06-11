@@ -11,11 +11,9 @@ namespace myun2
 		{
 			FILE* f;
 			generator(FILE *in_fp) : f(in_fp) {}
-			void generate(const char* s) {
-				fputs(s, f); }
-
-			void gen(const char* s) { fputs(s, f); }
-			void g(const char* s) { fputs(s, f); }
+			void generate(const char* s) { fputs(s, f); }
+			void gen(const char* s) { generate(s); }
+			void g(const char* s) { generate(s); }
 
 			template <typename T1>
 			void generate(const char* format, const T1& p1) {

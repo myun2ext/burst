@@ -1,5 +1,2 @@
-all:
-	g++ -O3 example.cpp -o app
-flush: all
-	./app basic.css   > basic.css
-	./app index.html  > index.html
+example1:
+	g++ -O3 example1_simple.cpp

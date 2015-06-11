@@ -11,68 +11,24 @@ namespace myun2
 		struct html_generator : generator
 		{
 			html_generator(FILE* f_in) : generator(f_in){}
-
 			void start_tag(const char* tag_name) {
 				generate("<%s>", tag_name); }
 			void close_tag(const char* tag_name) {
 				generate("</%s>", tag_name); }
-
-			void print_tag(const char* tag_name, const char* content) {
+			void end_tag(const char* tag_name) {
+				generate("</%s>", tag_name); }
+			void tag(const char* tag_name, const char* content) {
 				generate("<%s>%s</%s>", tag_name, content, tag_name); }
 
-			void print_open_div(const char* class_name) {
-				generate("<div class=\"%s\">", class_name); }
-			void print_close_div() { generate("</div>"); }
-
-			void print_a(const char* href) {
-				generate("<a href=\"%s\">", href); }
-			void print_close_a() { generate("</a>"); }
-
-			void print_ul() { generate("<ul>"); }
-			void print_close_ul() { generate("</ul>"); }
-
-			void print_li(const char* title) {
-				print_tag("li", title); }
-			void print_li_link(const char* title, const char* href) {
-				generate("<li><a href=\"%s\">%s</a></li>", href, title); }
-
-			void print_h1(const char* title) {
-				print_tag("h1", title); }
-
-			void print_container() {
-				generate("<div class=\"container\">"); }
-
-			void print_start_section() { generate("<section>"); }
-			void print_end_section() { generate("</section>"); }
-			void print_start_article() { generate("<article>"); }
-			void print_end_article() { generate("</article>"); }
-		};
-	}
-}
-
-//#include "html/head.hpp"
-//#include "html/body.hpp"
-//#include "html/form.hpp"
-
-namespace myun2
-{
-	namespace burst
-	{
-		namespace html
-		{
-			template <typename _App>
-			void render(FILE* f, const _App& app)
-			{
-				doctype_generator<5>(f).generate();
-
-				html_generator h(f);
-				h.start_tag("html");
-				/*	head & body  */
-				//render_head(app);
-				//app.render_html();
-				h.close_tag("html");
+			void start() {
+				html::doctype_generator<5>(f).generate();
+				start_tag("html");
 			}
-		}
+			void end() {
+				end_tag("html");
+			}
+			virtual ~html_generator() { end(); }
+		};
 	}
 }
 
