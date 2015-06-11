@@ -8,8 +8,9 @@ struct example_application : application_base
 		stylesheets.push_back("application.css");
 	}
 	const char* title() const { return "Example Application"; }
-	/*void render_header(FILE* f) {
-	}*/
+	void render_content(html_generator_base& r) {
+		r.tag("p", "This is example application.");
+	}
 };
 
 int main(int argc, char *argv[])

@@ -22,20 +22,22 @@ namespace myun2
 			virtual const char* title() const { return ""; }
 			virtual const char* logo() const { return title(); }
 
-			void render_css(FILE *f) {
+			virtual void render_css(FILE *f) {
 				app::basic_css(f).render();
 			}
-			void render_header(FILE *f) {
-				html::header(f).render(*this);
+			virtual void render_header(html_generator_base& r) {
+				html::header(r.f).render(*this);
 			}
-			void render_body(html_generator_base& r){
-				render_header(r.f);
+			virtual void render_content(html_generator_base& r) {}
+			virtual void render_body(html_generator_base& r){
+				render_header(r);
 				r.div_with_class("main-container");
 				r.tag("h1", title());
+				render_content(r);
 				r.close_div();
 			}
 
-			void render(const char* path)
+			virtual void render(const char* path)
 			{
 				if ( path == NULL || strcmp(path, "index.html") == 0)
 					html_generator(stdout).render(*this);
