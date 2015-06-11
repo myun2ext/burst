@@ -1,6 +1,8 @@
 #ifndef __MYUN2_GITHUB_COM__BURST__APP__HEADER_HPP__
 #define __MYUN2_GITHUB_COM__BURST__APP__HEADER_HPP__
 
+#include "logo.hpp"
+
 namespace myun2
 {
 	namespace burst
@@ -15,6 +17,7 @@ namespace myun2
 				void render(_Context& context)
 				{
 					open_tag("header");
+					logo(f).render(context);
 					close_tag("header");
 				}
 			};

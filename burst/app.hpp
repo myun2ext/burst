@@ -19,6 +19,7 @@ namespace myun2
 			}
 			virtual const char* charset() const { return "UTF-8"; }
 			virtual const char* title() const { return ""; }
+			virtual const char* logo() const { return title(); }
 
 			void render_header(FILE *f) {
 				html::header(f).render(*this);
