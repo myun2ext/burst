@@ -7,33 +7,30 @@ namespace myun2
 	{
 		namespace html
 		{
-			struct head
-			{
-				virtual const char* charset() const { return "UTF-8"; }
-				virtual const char* title() const { return ""; }
-			};
-
 			struct head_renderer : html_generator_base
 			{
-				const head &context;
-				head_renderer(FILE* f_in, const head& context_in) : html_generator_base(f_in), context(context_in) {}
+				head_renderer(FILE* f_in) : html_generator_base(f_in) {}
 
-				void generate()
+				template <typename _Context>
+				void generate(const _Context &context)
 				{
 					start_tag("head");
-					gen_charaset();
+					gen_charaset(context);
 					//gen_stylesheet_link_tag("basic.css");
-					gen_title();
+					gen_title(context);
 					close_tag("head");
 				}
 			private:
-				void gen_charaset() {
+				template <typename _Context>
+				void gen_charaset(const _Context &context) {
 					gen("<meta charset=\"%s\">", context.charset()); }
 
-				void stylesheet_link_tag(const char* path) {
-					gen("<link rel=\"stylesheet\" href=\"%s\">", path); }
+				//template <typename _Context>
+				//void stylesheet_link_tag(const _Context &context) {
+				//	gen("<link rel=\"stylesheet\" href=\"%s\">", path); }
 
-				void gen_title() {
+				template <typename _Context>
+				void gen_title(const _Context &context) {
 					tag("title", context.title()); }
 			};
 		}

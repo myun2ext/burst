@@ -1,16 +1,16 @@
-#include <stdio.h>
 #include "burst/html.hpp"
-#include "burst/html/doctype.hpp"
+using namespace myun2::burst;
 
-int main()
+struct app_context
 {
-	myun2::burst::html_generator h(stdout);
-	h.start();
-	h.render_head();
-	h.start_body();
-
-	h.tag("h1", "Hello World");
-
-	h.end_body();
+	const char* charset() const { return "UTF-8"; }
+	const char* title() const { return ""; }
+	void render_body(html_generator_base& r){
+		r.tag("h1", "Hello World");
+	}
+};
+int main() {
+	app_context c;
+	html_generator(stdout).render(c);
 	return 0;
 }

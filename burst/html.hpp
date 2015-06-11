@@ -3,7 +3,6 @@
 
 #include "generator.hpp"
 
-
 namespace myun2
 {
 	namespace burst
@@ -38,15 +37,19 @@ namespace myun2
 		struct html_generator : html_generator_base
 		{
 			html_generator(FILE* f_in) : html_generator_base(f_in){}
-			const html::head& get_head() { static html::head h; return h; }
 
 			void start() {
 				html::doctype_generator<5>(f).generate();
 				start_tag("html");
 			}
-			void render_head() {
-				html::head_renderer h(f, get_head());
-				h.generate();
+			template <typename _Context>
+			void render(_Context& context)
+			{
+				start();
+				html::head_renderer(f).generate(context);
+				start_body();
+				context.render_body(*this);
+				end_body();
 			}
 			void end() {
 				end_tag("html");
