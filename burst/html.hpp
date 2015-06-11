@@ -1,20 +1,25 @@
 #ifndef __MYUN2_GITHUB_COM__BURST__HTML_HPP__
 #define __MYUN2_GITHUB_COM__BURST__HTML_HPP__
 
+#include <stdio.h>
+
 namespace myun2
 {
 	namespace burst
 	{
-		namespace html
-		{
-			void _puts(const char* str) { fputs(str, stdout); }
+		struct generator {
+			FILE* f;
+		};
 
-			void print_open_tag(const char* tag_name) {
-				printf("<%s>", tag_name); }
+		struct html_generator
+		{
+			void start_tag(const char* tag_name) {
+				fprintf(f, "<%s>", tag_name); }
+			void close_tag(const char* tag_name) {
+				fprintf(f, "</%s>", tag_name); }
+
 			void print_tag(const char* tag_name, const char* content) {
 				printf("<%s>%s</%s>", tag_name, content, tag_name); }
-			void print_close_tag(const char* tag_name) {
-				printf("</%s>", tag_name); }
 
 			void print_open_div(const char* class_name) {
 				printf("<div class=\"%s\">", class_name); }
@@ -42,7 +47,7 @@ namespace myun2
 			void print_end_section() { _puts("</section>"); }
 			void print_start_article() { _puts("<article>"); }
 			void print_end_article() { _puts("</article>"); }
-		}
+		};
 	}
 }
 
