@@ -38,6 +38,8 @@ namespace myun2
 					property("background-color", color); }
 				void text_color(const char* color) {
 					property("color", color); }
+				void font_family(const char* families) {
+					property("font-family", families); }
 			};
 
 			struct reset : base

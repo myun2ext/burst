@@ -12,6 +12,11 @@ namespace myun2
 				basic_css(FILE* f_in) : css::base(f_in){}
 				void render()
 				{
+					/*  all */
+					selector("*");
+					font_family("'Hiragino Kaku Gothic ProN', Meiryo, sans-serif");
+					close();
+
 					/*  header */
 					selector("header");
 					background_color("#eee");
