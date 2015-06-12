@@ -7,11 +7,16 @@ namespace myun2
 	{
 		namespace css
 		{
-			void print_screen_under(unsigned int width) {
-				printf("@media screen and (max-width: %dpx){", width); }
+			struct responsive : generator
+			{
+				responsive(FILE* f_in) : generator(f_in) {}
+				//virtual void generate(const char* s, unsigned int n)=0;
+				void _screen_under_width(unsigned int width) {
+					generate("@media screen and (max-width: %dpx){", width); }
 
-			void print_screen_over(unsigned int width) {
-				printf("@media screen and (min-width: %dpx){", width); }
+				void _screen_over_width(unsigned int width) {
+					generate("@media screen and (min-width: %dpx){", width); }
+			};
 		}
 	}
 }

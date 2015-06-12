@@ -17,9 +17,9 @@ namespace myun2
 					font_family("'Hiragino Kaku Gothic ProN', Meiryo, sans-serif");
 					close();
 
-					/*  header */
+					/*  body */
 					selector("body");
-					background_color("#333");
+					background_color("#282838");
 					close();
 
 					/*  header */
@@ -45,14 +45,18 @@ namespace myun2
 
 					/*  main container */
 					selector(".main-container");
-					margin("20px auto");
-					width("90%");
-					height("120px");
 					padding("5px 2%");
 					background_color("white");
+					height("120px");
+					close();
 
-					border_radius("6px");
-					shadow();
+					_screen_over_width(640);
+						selector(".main-container");
+						margin("20px auto");
+						width("90%");
+						border_radius("6px");
+						shadow();
+						close();
 					close();
 				}
 			};
