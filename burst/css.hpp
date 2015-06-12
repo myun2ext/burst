@@ -23,6 +23,7 @@ namespace myun2
 
 #include "css/px.hpp"
 #include "css/box.hpp"
+#include "css/responsive.hpp"
 
 namespace myun2
 {
@@ -30,9 +31,9 @@ namespace myun2
 	{
 		namespace css
 		{
-			struct base : box
+			struct base : box, responsive
 			{
-				base(FILE* f_in) : box(f_in){}
+				base(FILE* f_in) : box(f_in) {}
 
 				void background_color(const char* color) {
 					property("background-color", color); }
@@ -42,6 +43,11 @@ namespace myun2
 					property("font-size", size); }
 				void font_family(const char* families) {
 					property("font-family", families); }
+				void transition(float time_sec) {
+					generate("-webkit-transition:%fs;", time_sec);
+					generate("transition:%fs;", time_sec); }
+
+				void _generate(const char*s, unsigned int n){generate(s,n);}
 			};
 
 			struct reset : base
