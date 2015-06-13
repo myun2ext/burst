@@ -4,9 +4,6 @@ using namespace myun2::burst;
 
 struct example_application : application_base
 {
-	example_application() {
-		stylesheets.push_back("application.css");
-	}
 	const char* title() const { return "Example Application"; }
 	void render_content(html_generator_base& r) {
 		r.tag("p", "This is example application.");
