@@ -44,6 +44,27 @@ namespace myun2
 			void close_a() {
 				generate("</a>"); }
 		};
+
+		namespace html
+		{
+			struct tag : html_generator_base
+			{
+				const char* name;
+				tag(const char* name_in) : name(name_in), html_generator_base(0) {}
+
+				template <typename _Context>
+				void render(_Context& context) {}
+
+				template <typename _Context>
+				void render(FILE* stream, _Context& context)
+				{
+					f = stream;
+					open_tag(name);
+					content(context);
+					close_tag(name);
+				}
+			};
+		}
 	}
 }
 
