@@ -1,5 +1,5 @@
-#ifndef __MYUN2_GITHUB_COM__BURST__HTML__GENERATOR_BASE_HPP__
-#define __MYUN2_GITHUB_COM__BURST__HTML__GENERATOR_BASE_HPP__
+#ifndef __MYUN2_GITHUB_COM__BURST__HTML__BASE_HPP__
+#define __MYUN2_GITHUB_COM__BURST__HTML__BASE_HPP__
 
 #include "../generator.hpp"
 
@@ -9,8 +9,7 @@ namespace myun2
 	{
 		struct html_generator_base : generator
 		{
-			html_generator_base() : generator(0){}
-			html_generator_base(FILE* f_in) : generator(f_in){}
+			html_generator_base(FILE* f_in = NULL) : generator(f_in){}
 
 			void open_tag(const char* tag_name) {
 				generate("<%s>", tag_name); }
@@ -48,4 +47,4 @@ namespace myun2
 	}
 }
 
-#endif//__MYUN2_GITHUB_COM__BURST__HTML__GENERATOR_BASE_HPP__
+#endif//__MYUN2_GITHUB_COM__BURST__HTML__BASE_HPP__

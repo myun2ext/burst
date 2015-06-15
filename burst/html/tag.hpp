@@ -17,21 +17,24 @@ namespace myun2
 
 			struct tag_generator : tag, html_generator_base
 			{
-				tag_generator(const char* name_in) : tag(name_in), html_generator_base(0) {}
+				tag_generator(const char* name_in, FILE* f_in)
+					: html::tag(name_in), html_generator_base(f_in) {}
 
-				void start() { open_tag(name);
-				void end() { close_tag(name);
-
-				template <typename _Context>
-				void render_content(_Context& context) {}
+				virtual void start() { open_tag(name); }
+				virtual void end() { close_tag(name); }
 
 				template <typename _Context>
-				void render(_Context& context)
+				void render_content(const _Context& context) {}
+
+				template <typename _Context>
+				void render(const _Context& context, FILE* stream = stdout)
 				{
+					f = stream;
 					start();
-					render_content();
+					render_content(context);
 					end();
 				}
+				void render() { render(0); }
 			};
 		}
 	}
