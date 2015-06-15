@@ -9,6 +9,7 @@ namespace myun2
 	{
 		struct html_generator_base : generator
 		{
+			html_generator_base() : generator(0){}
 			html_generator_base(FILE* f_in) : generator(f_in){}
 
 			void open_tag(const char* tag_name) {
@@ -51,11 +52,25 @@ namespace myun2
 			{
 				const char* name;
 				tag(const char* name_in) : name(name_in) {}
+			};
 
-				virtual void start_tag(const char*) =0;
-				virtual void close_tag(const char*) =0;
-				void start() { start_tag(name); }
-				void end() { close_tag(name); }
+			struct tag_generator : tag, html_generator_base
+			{
+				tag_generator(const char* name_in) : tag(name_in), html_generator_base(0) {}
+
+				void start() { open_tag(name);
+				void end() { close_tag(name);
+
+				template <typename _Context>
+				void render_content(_Context& context) {}
+
+				template <typename _Context>
+				void render(_Context& context)
+				{
+					start();
+					render_content();
+					end();
+				}
 			};
 		}
 	}
