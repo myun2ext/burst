@@ -51,6 +51,11 @@ namespace myun2
 			{
 				const char* name;
 				tag(const char* name_in) : name(name_in) {}
+
+				virtual void start_tag(const char*) =0;
+				virtual void close_tag(const char*) =0;
+				void start() { start_tag(name); }
+				void end() { close_tag(name); }
 			};
 		}
 	}
