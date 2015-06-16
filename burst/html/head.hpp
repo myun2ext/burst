@@ -1,38 +1,39 @@
 #ifndef __MYUN2_GITHUB_COM__BURST__HTML__HEAD_HPP__
 #define __MYUN2_GITHUB_COM__BURST__HTML__HEAD_HPP__
 
+#include <vector>
+
 namespace myun2
 {
 	namespace burst
 	{
 		namespace html
 		{
-			struct head_renderer : html_generator_base
+			struct head : html::tag_generator
 			{
-				head_renderer(FILE* f_in) : html_generator_base(f_in) {}
+				::std::vector<const char*> stylesheets;
+				head(FILE* f_in = NULL) : html::tag_generator("head", f_in) {}
 
-				template <typename _Context>
-				void generate(const _Context &context)
+				virtual const char* charset() const { return "UTF-8"; }
+				virtual const char* title() const { return ""; }
+
+				void render_content()
 				{
-					start_tag("head");
-					gen_charaset(context);
-					gen_stylesheet_link_tags(context);
-					gen_title(context);
-					close_tag("head");
+					render_meta_charaset();
+					render_title();
+					render_stylesheet_link_tags();
 				}
 			private:
-				template <typename _Context>
-				void gen_charaset(const _Context &context) {
-					gen("<meta charset=\"%s\">", context.charset()); }
-
-				template <typename _Context>
-				void gen_stylesheet_link_tags(const _Context &context) {
-					for(int i=0; i<context.stylesheets.size(); i++)
-						gen("<link rel=\"stylesheet\" href=\"%s\">", context.stylesheets[i]); }
-
-				template <typename _Context>
-				void gen_title(const _Context &context) {
-					tag("title", context.title()); }
+				void render_meta_charaset() {
+					gen("<meta charset=\"%s\">", charset());
+				}
+				void render_title() {
+					tag("title", title());
+				}
+				void render_stylesheet_link_tags() {
+					for(int i=0; i<stylesheets.size(); i++)
+						gen("<link rel=\"stylesheet\" href=\"%s\">", stylesheets[i]);
+				}
 			};
 		}
 	}

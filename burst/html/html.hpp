@@ -15,7 +15,9 @@ namespace myun2
 		{
 			html_generator(FILE* f_in = NULL) : html::tag_generator("html", f_in){}
 
-			virtual void render_head(){}
+			virtual void render_head(){
+				html::head().render();
+			}
 			virtual void render_body(){}
 			virtual void render_content() {
 				render_head();
