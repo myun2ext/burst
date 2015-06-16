@@ -4,7 +4,7 @@ using namespace myun2::burst;
 struct my_document : html_generator<5>
 {
 	void render_body_content() {
-		tag("h1", "Hello wordl.");
+		tag("h1", "Hello World");
 	}
 };
 
