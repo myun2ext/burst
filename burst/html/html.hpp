@@ -12,8 +12,13 @@ namespace myun2
 	{
 		namespace html
 		{
+			template <typename _Content>
 			struct body : html::tag_generator {
-				body(FILE* f_in = NULL) : html::tag_generator("body", f_in){}
+				_Content& content;
+				body(_Content& content_in, FILE* f_in = NULL) : content(content_in), html::tag_generator("body", f_in){}
+				virtual void render_content() {
+					content.render_body_content();
+				}
 			};
 		}
 
@@ -23,7 +28,8 @@ namespace myun2
 			html_generator(FILE* f_in = NULL) : html::tag_generator("html", f_in){}
 
 			virtual void render_head(){ html::head().render(f); }
-			virtual void render_body(){ html::body().render(f); }
+			virtual void render_body(){ html::body<html_generator<_HtmlVersion> >(*this).render(f); }
+			virtual void render_body_content(){}
 			virtual void render_content() {
 				render_head();
 				render_body();
