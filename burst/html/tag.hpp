@@ -27,15 +27,14 @@ namespace myun2
 				virtual void start() { open_tag(name); }
 				virtual void end() { close_tag(name); }
 
-				template <typename _Content, typename _Context>
-				void render(_Content& content, const _Context& context, FILE* stream = stdout)
+				virtual void render_content(){}
+				void render(FILE* stream = stdout)
 				{
 					f = stream;
 					start();
-					content.render(context, stream);
+					render_content();
 					end();
 				}
-				void render() { null_content nc; render(nc, 0); }
 			};
 		}
 	}
