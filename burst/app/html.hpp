@@ -14,7 +14,7 @@ namespace myun2
 			struct html_document : html_generator<5>
 			{
 				void render_header() {
-					//html::header().render(f);
+					html::header().render(f);
 				}
 				void render_main() {}
 				void render_footer() {}

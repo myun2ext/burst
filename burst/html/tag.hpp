@@ -21,7 +21,7 @@ namespace myun2
 					template <typename _Context>
 					void render(_Context& context, FILE* stream) {}
 				};
-				tag_generator(const char* name_in, FILE* f_in)
+				tag_generator(const char* name_in, FILE* f_in = NULL)
 					: tag_(name_in), html_generator_base(f_in) {}
 
 				virtual void start() { open_tag(name); }
