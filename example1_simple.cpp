@@ -1,15 +1,15 @@
-#include "burst/html.hpp"
+#include "burst/app.hpp"
 using namespace myun2::burst;
 
-struct my_document : html_generator<5>
+struct my_app : application_base
 {
 	void render_body_content() {
-		tag("h1", "Hello World");
+	//	tag("h1", "Hello World");
 	}
 };
 
 int main(int argc, char *argv[])
 {
-	my_document().render();
+	my_app().render("");
 	return 0;
 }

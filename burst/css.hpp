@@ -5,7 +5,6 @@
 #include "css/px.hpp"
 #include "css/box.hpp"
 #include "css/responsive.hpp"
-#include "css/reset.hpp"
 
 namespace myun2
 {
@@ -34,5 +33,7 @@ namespace myun2
 		}
 	}
 }
+
+#include "css/reset.hpp"
 
 #endif//__MYUN2_GITHUB_COM__BURST__CSS_HPP__

@@ -1,6 +1,8 @@
 #ifndef __MYUN2_GITHUB_COM__BURST__CSS__RESET_HPP__
 #define __MYUN2_GITHUB_COM__BURST__CSS__RESET_HPP__
 
+#include "../css.hpp"
+
 namespace myun2
 {
 	namespace burst
