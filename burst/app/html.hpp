@@ -3,7 +3,8 @@
 
 #include "../html.hpp"
 #include "header.hpp"
-//#include "html/main.hpp"
+#include "main.hpp"
+#include "footer.hpp"
 
 namespace myun2
 {
@@ -16,8 +17,12 @@ namespace myun2
 				void render_header() {
 					html::header().render(f);
 				}
-				void render_main() {}
-				void render_footer() {}
+				void render_main() {
+					html::main().render(f);
+				}
+				void render_footer() {
+					html::footer().render(f);
+				}
 
 				void render_body_content()
 				{

@@ -18,6 +18,8 @@ namespace myun2
 
 			void open_tag(const char* tag_name, const char* attributes) {
 				generate("<%s %s>", tag_name, attributes); }
+			void open_tag(const char* tag_name, const char* attribute_name, const char* attribute_value) {
+				generate("<%s %s=\"%s\">", tag_name, attribute_name, attribute_value); }
 
 			void close_tag(const char* tag_name) {
 				generate("</%s>", tag_name); }
