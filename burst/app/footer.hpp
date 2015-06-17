@@ -19,4 +19,4 @@ namespace myun2
 	}
 }
 
-#endif//__MYUN2_GITHUB_COM__BURST__APP__HEADER_HPP__
+#endif//__MYUN2_GITHUB_COM__BURST__APP__FOOTER_HPP__
