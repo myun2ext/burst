@@ -7,6 +7,11 @@ namespace myun2
 	{
 		struct content_base
 		{
+			virtual const char* title() const { return "Application"; }
+			virtual const char* charset() const { return "UTF-8"; }
+			virtual const char* txtcolor() const { return "#111"; }
+			virtual const char* bgcolor() const { return "#eee"; }
+			virtual const char* font() const { return "'Hiragino Kaku Gothic ProN', Meiryo, sans-serif"; }
 		};
 	}
 }
